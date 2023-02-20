@@ -13,11 +13,15 @@ export default function App() {
             const response = await fetch(apiUrl);
             const test = await response.json();
         console.log(test)
-        set_data(({...data,...test}))
-        console.log(data)
+        set_data(prevState => ({ ...prevState, ...test }))
         };
-        fetchData().then();
-    }, []);
+        fetchData();
+    }, [apiUrl]);
+
+    useEffect(() => {
+        console.log(data);
+    }, [data]);
+
 
     return (
         <div>
@@ -45,6 +49,7 @@ export default function App() {
 
   );
 }*/
+
 
 
 
