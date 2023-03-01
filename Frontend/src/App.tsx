@@ -12,7 +12,7 @@ export default function App() {
         const fetchData = async () => {
             const response = await fetch(apiUrl);
             const test = await response.json();
-        console.log(test)
+        // console.log(test)
         set_data(prevState => ({ ...prevState, ...test }))
         };
         fetchData();
@@ -49,7 +49,6 @@ export default function App() {
 
   );
 }*/
-
 
 
 
