@@ -19,19 +19,19 @@ export function VizScatter_test (data: {[key: string]: {[key: string]: number[][
                 <Col span={6}>
                     <ReactEcharts
                         style={{height: height}}
+                        option={optionVizScatter1(data["petal length vs. petal width"], fsize)}
+                    />
+                </Col>
+                <Col span={6}>
+                    <ReactEcharts
+                        style={{height: height}}
                         option={optionVizScatter1(data["petal length vs. sepal length"], fsize)}
                     />
                 </Col>
                 <Col span={6}>
                     <ReactEcharts
                         style={{height: height}}
-                        option={optionVizScatter1(data["petal length vs. petal length"], fsize)}
-                    />
-                </Col>
-                <Col span={6}>
-                    <ReactEcharts
-                        style={{height: height}}
-                        option={optionVizScatter1(data["petal length vs. petal length"], fsize)}
+                        option={optionVizScatter1(data["petal length vs. sepal width"], fsize)}
                     />
                 </Col>
             </Row>
@@ -40,52 +40,25 @@ export function VizScatter_test (data: {[key: string]: {[key: string]: number[][
                 <Col span={6}>
                     <ReactEcharts
                         style={{height: height}}
-                        option={optionVizScatter1(data["petal length vs. petal length"], fsize)}
+                        option={optionVizScatter1(data["petal width vs. petal length"], fsize)}
                     />
                 </Col>
                 <Col span={6}>
                     <ReactEcharts
                         style={{height: height}}
-                        option={optionVizScatter1(data["petal length vs. petal length"], fsize)}
+                        option={optionVizScatter1(data["petal width vs. petal width"], fsize)}
                     />
                 </Col>
                 <Col span={6}>
                     <ReactEcharts
                         style={{height: height}}
-                        option={optionVizScatter1(data["petal length vs. petal length"], fsize)}
+                        option={optionVizScatter1(data["petal width vs. sepal length"], fsize)}
                     />
                 </Col>
                 <Col span={6}>
                     <ReactEcharts
                         style={{height: height}}
-                        option={optionVizScatter1(data["petal length vs. petal length"], fsize)}
-                    />
-                </Col>
-            </Row>
-
-            <Row>
-                <Col span={6}>
-                    <ReactEcharts
-                        style={{height: height}}
-                        option={optionVizScatter1(data["petal length vs. petal length"], fsize)}
-                    />
-                </Col>
-                <Col span={6}>
-                    <ReactEcharts
-                        style={{height: height}}
-                        option={optionVizScatter1(data["petal length vs. petal length"], fsize)}
-                    />
-                </Col>
-                <Col span={6}>
-                    <ReactEcharts
-                        style={{height: height}}
-                        option={optionVizScatter1(data["petal length vs. petal length"], fsize)}
-                    />
-                </Col>
-                <Col span={6}>
-                    <ReactEcharts
-                        style={{height: height}}
-                        option={optionVizScatter1(data["petal length vs. petal length"], fsize)}
+                        option={optionVizScatter1(data["petal width vs. sepal width"], fsize)}
                     />
                 </Col>
             </Row>
@@ -94,25 +67,52 @@ export function VizScatter_test (data: {[key: string]: {[key: string]: number[][
                 <Col span={6}>
                     <ReactEcharts
                         style={{height: height}}
-                        option={optionVizScatter1(data["petal length vs. petal length"], fsize)}
+                        option={optionVizScatter1(data["sepal length vs. petal length"], fsize)}
                     />
                 </Col>
                 <Col span={6}>
                     <ReactEcharts
                         style={{height: height}}
-                        option={optionVizScatter1(data["petal length vs. petal length"], fsize)}
+                        option={optionVizScatter1(data["sepal length vs. petal width"], fsize)}
                     />
                 </Col>
                 <Col span={6}>
                     <ReactEcharts
                         style={{height: height}}
-                        option={optionVizScatter1(data["petal length vs. petal length"], fsize)}
+                        option={optionVizScatter1(data["sepal length vs. sepal length"], fsize)}
                     />
                 </Col>
                 <Col span={6}>
                     <ReactEcharts
                         style={{height: height}}
-                        option={optionVizScatter1(data["petal length vs. petal length"], fsize)}
+                        option={optionVizScatter1(data["sepal length vs. sepal width"], fsize)}
+                    />
+                </Col>
+            </Row>
+
+            <Row>
+                <Col span={6}>
+                    <ReactEcharts
+                        style={{height: height}}
+                        option={optionVizScatter1(data["sepal width vs. petal length"], fsize)}
+                    />
+                </Col>
+                <Col span={6}>
+                    <ReactEcharts
+                        style={{height: height}}
+                        option={optionVizScatter1(data["sepal width vs. petal width"], fsize)}
+                    />
+                </Col>
+                <Col span={6}>
+                    <ReactEcharts
+                        style={{height: height}}
+                        option={optionVizScatter1(data["sepal width vs. sepal length"], fsize)}
+                    />
+                </Col>
+                <Col span={6}>
+                    <ReactEcharts
+                        style={{height: height}}
+                        option={optionVizScatter1(data["sepal width vs. sepal width"], fsize)}
                     />
                 </Col>
             </Row>
