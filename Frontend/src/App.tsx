@@ -5,14 +5,25 @@ import {dataVizScatter_test} from "./visualisierung/chart_data";
 
 
 export default function App() {
-    const [data, set_data] = useState({});
+    const [data, set_data] = useState(
+        {
+            "petal length vs. petal length": {
+                "correct": [[]],
+                "incorrect": [[]]
+            },
+            "petal length vs. sepal length": {
+                "correct": [[]],
+                "incorrect": [[]]
+            }
+    });
+
     const apiUrl = 'http://localhost:8000/api/datapoints';
 
     useEffect(() => {
         const fetchData = async () => {
             const response = await fetch(apiUrl);
             const test = await response.json();
-        // console.log(test)
+        console.log(test)
         set_data(prevState => ({ ...prevState, ...test }))
         };
         fetchData();
@@ -28,6 +39,8 @@ export default function App() {
             <h1 className={"title"}>
                 Iris Flower
             </h1>
+            {VizScatter_test(data,"400px", 7)}
+
         </div>
     );
 }
