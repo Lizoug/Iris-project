@@ -1,6 +1,6 @@
+from pydantic import BaseModel
 from fastapi import (APIRouter, Path, Query, Body)
 from toolbox.iris_functions import ABC, create_dataset, eval_knn, iris_data
-from pydantic import BaseModel
 from joblib import load
 from sklearn.datasets import load_iris
 
@@ -19,12 +19,13 @@ async def datapoints():
     X_train, X_test, y_train, y_test = create_dataset()
 
     # evaluate model
-    pred_eval = eval_knn(model_path="ml_models/knn_iris.joblib", X_test=X_test, y_test=y_test)
+    pred_eval, predictions = eval_knn(model_path="ml_models/knn_iris.joblib", X_test=X_test, y_test=y_test)
 
     # get iris data
-    data = iris_data(X_test, pred_eval)
+    data = iris_data(X_test, pred_eval, predictions)
 
     return data
+
 
 
 class FlowerInput(BaseModel):
@@ -57,3 +58,4 @@ async def predict(input_data: FlowerInput = Body(...)):
 
     # Return the predicted flower type as a JSON response
     return {"flower_type": flower_type}
+
