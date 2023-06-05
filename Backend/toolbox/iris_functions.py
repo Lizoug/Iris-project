@@ -7,8 +7,8 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import classification_report
 
-from models.iris_models import IrisDataPoints, IrisCategories
 from models.iris_models import Test
+
 
 
 def create_dataset():
@@ -18,10 +18,7 @@ def create_dataset():
     # build pandas data frame
     data = pd.DataFrame(
         data=np.c_[data['data'], data['target']],
-        columns=data['feature_names'] + ['target']
-    )
-
-    #
+        columns=data['feature_names'] + ['target'])
 
     # Droping the target since we only need the measurements
     X = data.drop(['target'], axis=1)
@@ -68,10 +65,11 @@ def eval_knn(model_path, X_test, y_test):
         else:
             pred_eval.append('incorrect')
 
-    return pred_eval
+    return pred_eval, prediction
 
 
-def iris_data(X_test, pred_eval):
+
+def iris_data(X_test, pred_eval, predictions):
     # Columns to create scatter plots for
     features = ['petal length', 'petal width', 'sepal length', 'sepal width']
 
@@ -92,7 +90,16 @@ def iris_data(X_test, pred_eval):
             # Store numpy array of dots in dictionary
             feature_combi = f'{feature_1} vs. {feature_2}'
             if feature_combi not in return_obj:
-                return_obj[feature_combi] = {"correct": datapoints_correct, "incorrect": datapoints_incorrect}
+                return_obj[feature_combi] = {
+                    "correct": {
+                        "points": datapoints_correct,
+                        "predictions": predictions[mask_correct].tolist()
+                    },
+                    "incorrect": {
+                        "points": datapoints_incorrect,
+                        "predictions": predictions[mask_incorrect].tolist()
+                    }
+                }
 
     return return_obj
 
