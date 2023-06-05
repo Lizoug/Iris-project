@@ -1,8 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {createRoot} from "react-dom/client";
+import {Layout} from 'antd';
+import './css/index.css';
+import {PageHeader} from "./components/header";
+
 
 
 const apiUrl = 'http://localhost:8000/api/datapoints';
@@ -22,3 +26,14 @@ fetch(apiUrl)
     });
 
 reportWebVitals();
+
+
+const {Header} = Layout;
+const root = createRoot(document.getElementById("root")!);
+root.render(
+    <Layout>
+        <Header className='header'>
+            <PageHeader/>
+        </Header>
+    </Layout>
+);
